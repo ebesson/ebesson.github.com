@@ -8,6 +8,14 @@
 
 	<p><em>${content.date?string("dd MMMM yyyy")}</em> - <a href="#disqus_thread">Commentaires</a></p>
 
+	<#-- 
+	<p>
+		<#list tag as content.tags>
+			<span class="badge">tag</span>
+	  	</#list>
+  	</p>
+  	-->
+  	
 	<p>${content.body}</p>
 
 	<hr>

@@ -2,11 +2,7 @@
 	
 	<#include "menu.ftl">
 
-	<div class="page-header">
-            <div class="row">
-                <div class="col-xs-12 col-md-8"><h1>Carnet de notes d'un développeur</h1></div>
-            </div>
-	</div>
+
 	<#list posts as post>
   		<#if (post.status == "published")>
   			<a href="${post.uri}"><h1>${post.title}</h1></a>

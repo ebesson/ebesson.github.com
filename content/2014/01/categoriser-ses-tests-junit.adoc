@@ -1,0 +1,78 @@
+= Catégoriser ses tests avec JUnit
+Etienne BESSON
+2014-01-01
+:jbake-type: post
+:jbake-tags: java test junit
+:jbake-status: unpublished
+:source-highlighter: prettify
+:id: categoriser_ses_tests_junit
+
+= Problématique
+
+Le framework JUnit propose l'annotation @Category pour catégoriser ses tests.  Cette annotation peut-être utilisée sur une classe ou sur une méthode. Pour lancer une suite de tests en utilisant les catégories, JUnit fournit les outils suivant 
+
+* Un runner : Categories pour lancer des tests avec des catégories
+* Des annotations pour inclure ou exclure des catégories : IncludeCategory et ExcludeCategory
+* Une annotation pour définir les suites de tests : SuiteClasses
+
+Ce qui donne le code suivant pour une suite de tests :
+[source,java]
+----
+@RunWith(Categories.class)
+@IncludeCategory(value={HighLevelTest.class,MediumLevelTest.class)
+@SuiteClasses( { ApplicationTest.class, ApplicationATest.class })
+public class TfmHightTestSuite {
+ 
+}
+----
+
+L'utilisation du code précédent pose les problèmes suivant :
+
+    Il faut maintenir la liste des classes de tests dans l'annotation SuiteClasses
+    Quand que plusieurs catégories sont utilisées dans l'annotation IncludeCategory, le framework fait un "OU" logique entre les catégories. On ne peux pas lancer des suites de tests du type : les TFM High sur BuisnessDomain.
+
+= Solution
+
+Voici la solution retenue pour résoudre les problèmes précédents est la suivante :
+
+* Générer dynamiquement la suite de tests à partir d'un package à scanner
+* Créer une nouvelle annotation pour inclure des catégories avec la possibilité de définir un opérateur logique (ET, OU) entre les catégories
+
+Ces outils sont disponibles dans à l'url suivante :
+
+* Une nouvelle annotation IncludeCategory qui permet de prendre en compte les catégories et l'opérateur logique entre les catégories
+* Une nouvelle annotation TestPackageToScann qui permet de définir le package à scanner pour créer dynamiquement la suite de tests
+* Un nouveau runner PJCategories qui permet l’utilisation des annotations IncludeCategory et TestPackageToScann 
+
+= Mise en œuvre
+
+Pour la mise en œuvre  nous prendrons l'exemple suivant : je souhaite pourvoir lancer les tests TFM High sur le BuisnessDomain
+
+Voici les différentes étapes de mise en oeuvre :
+
+* Création des annotations nécessaires
+* Mise en place des annotations
+* Création de la suite de tests
+
+Création des annotations nécessaires
+
+Nous allons créer l'annotation métier BuisnessDomain. Elle nous permettra de marquer toutes les classes de tests qui sont relatives au métier BuisnessDomain.
+[source,java]
+----
+@Retention(RetentionPolicy.RUNTIME)
+public @interface BuisnessDomain {
+}
+----
+
+Mise en place des annotations
+	
+
+Il ne faut pas oublier de marquer chaque classes de tests relatives à BuisnessDomain avec la nouvelle annotation
+Création de la suite de tests
+[source,java]
+----
+@RunWith(Categories.class)
+@IncludeCategory(categories = { BuisnessDomain.class, HighLevelTest.class }, operator = IncludeCategory.AND)
+public class TfmHighEtB2BTestSuite {
+}
+----

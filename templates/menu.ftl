@@ -14,7 +14,9 @@
             <ul class="nav navbar-nav">
               <li><a href="/index.html">Home</a></li>
               <li><a href="/about.html">A propos</a></li>
-              <li><a href="${config.feed_file}">Flux RSS</a></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li><a href="${config.feed_file}"><img src="img/feedIcon.png"></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
