@@ -1,8 +1,9 @@
-= A propos de l'auteur
+= A propos
 Etienne BESSON
 :jbake-type: page
 :jbake-tags: 
 :jbake-status: published
 
+Pourquoi ce blog ? Pour me servir de carnet de notes et pour faire partager mes connaissances.
 
-
+Tous les propos contenus sur ce blog sont strictement personnel et n'engagent aucunement mon employeur ou les clients avec qui je travaille. 
