@@ -1,0 +1,21 @@
+= Récuperer la version d'un projet Maven dans un build Jenkins
+Etienne BESSON
+2014-01-01
+:jbake-type: post
+:jbake-tags: groovy jenkins maven
+:jbake-status: draft
+:source-highlighter: prettify
+:id: recuperer_la_version_d_un_projet_maven_dans_un_build_Jenkins
+
+Aujourd'hui dans mon travail, j'ai été confronté à la récupération de la version d'un projet Maven dans Jenkins. Actuellement cette valeur n'est pas exposée par le plugin Maven (cf: https://issues.jenkins-ci.org/browse/JENKINS-20594 )
+
+La solution est d'utilisée le plugin Groovy et d'éxecuter le script suivant.
+
+[source,gropvy]
+----
+
+ 
+}
+----
+
+La version du projet Maven est maintenant injectée comme variable dans le context du job Jenkins.
