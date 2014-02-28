@@ -1,0 +1,38 @@
+= Configurer son outil de merge / diff avec Git
+Etienne BESSON
+2014-02-28
+:jbake-type: post
+:jbake-tags: git outil
+:jbake-status: published
+:source-highlighter: prettify
+:id: configurer_son_outil_de_merge_diff_avec_git
+
+
+Lorsque que l'on travaille avec Git, on souvent est amené à faire des diffs sur un fichier ou résoudre des confilts lors d'un merge, le recours à outil graphique est bien pratique. L'outil Meld remplit parfaitement ces fonctions.
+
+Voici la procédure pour l'installer :
+
+[source,shell]
+----
+sudo apt-get install meld
+----
+
+Créer dans votre home un fichier nommé diff.py avec le contenu suivant :
+[source,python]
+----
+#!/usr/bin/python
+ 
+import sys
+import os
+ 
+os.system('meld "%s" "%s"' % (sys.argv[2], sys.argv[5]))
+}
+----
+
+Il ne reste plus qu'à configurer Git pour l'utiliser.
+[source,shell]
+----
+git config --global diff.external /chemin/vers/diff.py
+----
+
+Lorsque de l'éxécution de commande "git diff monFichier", si le fichier contient des modifications Meld s'ouvira. Pour utiliser Meld lors d'un merge, lancer la commande "git mergetool".
