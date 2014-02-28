@@ -47,22 +47,63 @@
             <ul class="nav navbar-nav">
               <li><a href="/index.html">Home</a></li>
               <li><a href="/about.html">A propos</a></li>
-              <li><a href="feed.xml">Flux RSS</a></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li><a href="feed.xml"><img src="img/feedIcon.png"></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
       <div class="container">
 
-	<div class="page-header">
-            <div class="row">
-                <div class="col-xs-12 col-md-8"><h1>Carnet de notes d'un développeur</h1></div>
-            </div>
-	</div>
+
+  			<a href="/2014/02/configurer_son_outil_de_merge_diff_avec_git.html"><h1>Configurer son outil de merge / diff avec Git</h1></a>
+  			<p>28 février 2014</p>
+  			<p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lorsque que l&#8217;on travaille avec Git, on souvent est amené à faire des diffs sur un fichier ou résoudre des confilts lors d&#8217;un merge, le recours à outil graphique est bien pratique. L&#8217;outil Meld remplit parfaitement ces fonctions.</p>
+</div>
+<div class="paragraph">
+<p>Voici la procédure pour l&#8217;installer :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint shell language-shell"><code>sudo apt-get install meld</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Créer dans votre home un fichier nommé diff.py avec le contenu suivant :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint python language-python"><code>#!/usr/bin/python
+
+import sys
+import os
+
+os.system('meld "%s" "%s"' % (sys.argv[2], sys.argv[5]))
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il ne reste plus qu'à configurer Git pour l&#8217;utiliser.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint shell language-shell"><code>git config --global diff.external /chemin/vers/diff.py</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lorsque de l'éxécution de commande "git diff monFichier", si le fichier contient des modifications Meld s&#8217;ouvira. Pour utiliser Meld lors d&#8217;un merge, lancer la commande "git mergetool".</p>
+</div>
+</div>
+</div></p>
+				<p>Next</p>
 	
 	<hr />
 	
-	<p>Older posts are available in the <a href="/archive.html">archive</a>.</p>
+	<p>La liste de tous les posts :<a href="/archive.html">archive</a>.</p>
 
 		</div>
 		<div id="push"></div>

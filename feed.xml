@@ -6,9 +6,57 @@
     <atom:link href="http://ebesson.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>lun., 16 déc. 2013 22:36:43 +0100</pubDate>
-    <lastBuildDate>lun., 16 déc. 2013 22:36:43 +0100</lastBuildDate>
+    <pubDate>ven., 28 févr. 2014 21:55:30 +0100</pubDate>
+    <lastBuildDate>ven., 28 févr. 2014 21:55:30 +0100</lastBuildDate>
 
+    <item>
+      <title>Configurer son outil de merge / diff avec Git</title>
+      <link>http://ebesson.github.io/2014/02/configurer_son_outil_de_merge_diff_avec_git.html</link>
+      <pubDate>ven., 28 févr. 2014 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">/2014/02/configurer_son_outil_de_merge_diff_avec_git.html</guid>
+      	<description>
+	&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Lorsque que l&amp;#8217;on travaille avec Git, on souvent est amené à faire des diffs sur un fichier ou résoudre des confilts lors d&amp;#8217;un merge, le recours à outil graphique est bien pratique. L&amp;#8217;outil Meld remplit parfaitement ces fonctions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Voici la procédure pour l&amp;#8217;installer :&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint shell language-shell&quot;&gt;&lt;code&gt;sudo apt-get install meld&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Créer dans votre home un fichier nommé diff.py avec le contenu suivant :&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint python language-python&quot;&gt;&lt;code&gt;#!/usr/bin/python
+
+import sys
+import os
+
+os.system(&apos;meld &quot;%s&quot; &quot;%s&quot;&apos; % (sys.argv[2], sys.argv[5]))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Il ne reste plus qu&apos;à configurer Git pour l&amp;#8217;utiliser.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint shell language-shell&quot;&gt;&lt;code&gt;git config --global diff.external /chemin/vers/diff.py&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Lorsque de l&apos;éxécution de commande &quot;git diff monFichier&quot;, si le fichier contient des modifications Meld s&amp;#8217;ouvira. Pour utiliser Meld lors d&amp;#8217;un merge, lancer la commande &quot;git mergetool&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
 
   </channel> 
 </rss>
