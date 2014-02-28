@@ -6,8 +6,8 @@
     <atom:link href="http://ebesson.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>ven., 28 févr. 2014 21:55:30 +0100</pubDate>
-    <lastBuildDate>ven., 28 févr. 2014 21:55:30 +0100</lastBuildDate>
+    <pubDate>ven., 28 févr. 2014 22:06:22 +0100</pubDate>
+    <lastBuildDate>ven., 28 févr. 2014 22:06:22 +0100</lastBuildDate>
 
     <item>
       <title>Configurer son outil de merge / diff avec Git</title>
@@ -51,7 +51,7 @@ os.system(&apos;meld &quot;%s&quot; &quot;%s&quot;&apos; % (sys.argv[2], sys.arg
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Lorsque de l&apos;éxécution de commande &quot;git diff monFichier&quot;, si le fichier contient des modifications Meld s&amp;#8217;ouvira. Pour utiliser Meld lors d&amp;#8217;un merge, lancer la commande &quot;git mergetool&quot;.&lt;/p&gt;
+&lt;p&gt;Lors de l&apos;éxécution de commande &quot;git diff monFichier&quot;, si le fichier contient des modifications Meld s&amp;#8217;ouvira. Pour utiliser Meld lors d&amp;#8217;un merge, lancer la commande &quot;git mergetool&quot;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
