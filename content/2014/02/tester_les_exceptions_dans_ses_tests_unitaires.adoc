@@ -1,0 +1,30 @@
+
+= Tester les exceptions dans ses tests unitaires
+Etienne BESSON
+2014-03-10
+type :jbake-: post
+:jbake-tags: java test junit
+:jbake-status: draft
+:source-highlighter: prettify
+:id: tester_les_exceptions_dans_ses_tests_unitaires
+
+Un article initulé Ref sur le blog d'Arolla présente différentes manières pour tester les exceptions dans les tests unitaires :
+*
+*
+*
+
+Le framework assertJ de Joel propose deux solutions pour repondre à cette problématique. Nous allons les détailler.
+
+La première
+
+[source,java]
+----
+
+
+----
+
+
+[source,java]
+----
+
+----
