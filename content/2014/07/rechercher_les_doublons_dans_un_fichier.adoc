@@ -8,7 +8,7 @@ type :jbake-: draft
 :id: rechercher_les_doublons_dans_un_fichier
 
 
-Dans les fichiers properties, c'est à dire un fichier de la forme clé/valeur on est souvent à amener définir souvent beaucoup de clés. Si une clé est défini plusieurs fois, la dernière déclaration est prise en compte. 
+Dans les fichiers properties, c'est à dire un fichier de la forme clé/valeur on est souvent à amener définir souvent beaucoup de clés. Si une clé est définie plusieurs fois, c'est la dernière déclaration est prise en compte. 
 
 [source,java]
 ----
@@ -20,17 +20,16 @@ cle5=valeur5
 cle3=valeur3
 ----
 
-Vous une solution simple pour rechercher les doublons
+Vous une solution simple pour rechercher les doublons : 
 [source,shell]
 ----
-sort <file> | uniq --count
+sort monfichier.properties | uniq --count | sort -nr
+
+      2 cle3=valeur3
+      1 cle5=valeur5
+      1 cle4=valeur4
+      1 cle2=valeur2
+      1 cle1=valeur1
 ----
 
-Ce qui nous donne pour le fichier précédent
-
-[source,shell]
-----
-TODO
-----
-
-
+On pour chaque couples clé/valeur le nombre d'occurence trouvé et la ligne associée.
