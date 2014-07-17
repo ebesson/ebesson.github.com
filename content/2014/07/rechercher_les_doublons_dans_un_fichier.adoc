@@ -1,0 +1,36 @@
+= Rechercher les doublons dans un fichier
+Etienne BESSON
+2014-07-17
+type :jbake-: draft
+:jbake-tags: linux shell
+:jbake-status: draft
+:source-highlighter: prettify
+:id: rechercher_les_doublons_dans_un_fichier
+
+
+Dans les fichiers properties, c'est à dire un fichier de la forme clé/valeur on est souvent à amener définir souvent beaucoup de clés. Si une clé est défini plusieurs fois, la dernière déclaration est prise en compte. 
+
+[source,java]
+----
+cle1=valeur1
+cle2=valeur2
+cle3=valeur3
+cle4=valeur4
+cle5=valeur5
+cle3=valeur3
+----
+
+Vous une solution simple pour rechercher les doublons
+[source,shell]
+----
+sort <file> | uniq --count
+----
+
+Ce qui nous donne pour le fichier précédent
+
+[source,shell]
+----
+TODO
+----
+
+
